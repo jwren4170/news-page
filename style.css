@@ -33,6 +33,10 @@ dd {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
 ol[role='list'] {
@@ -74,6 +78,7 @@ picture {
 }
 
 nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -150,7 +155,8 @@ nav ul li a {
   width: 8rem;
 }
 
-.read-more .button:hover {
+.read-more .button:hover,
+.button:active {
   background: var(--very-dark-blue);
 }
 
@@ -186,7 +192,7 @@ nav ul li a {
 .call {
   display: flex;
   column-gap: 0.7rem;
-  padding: 0 0 5rem 0.5rem;
+  padding: 3rem 0 5rem 0.5rem;
 }
 
 .call h3 {
@@ -214,8 +220,12 @@ nav ul li a {
   color: var(--dark-grayish-blue);
 }
 
-/* Media queries */
+.menu-icons {
+  display: none;
+}
 
+/* **************************************************************** */
+/* Media queries */
 @media (max-width: 55rem) {
   .main-container {
     padding: 0 1rem;
@@ -225,6 +235,45 @@ nav ul li a {
 @media (max-width: 46rem) {
   .main-container {
     margin-bottom: 4rem;
+  }
+
+  .menu-icons {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    width: 70%;
+    padding: 0;
+    background: #fff;
+    margin: auto;
+  }
+
+  .menu.active li a {
+    font-size: 1.2rem;
+  }
+
+  .menu-open-icon {
+    display: block;
+    cursor: pointer;
+    margin-right: 1.2rem;
+  }
+
+  .menu-close-icon {
+    display: none;
+    cursor: pointer;
+    margin-right: 1.2rem;
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
   }
 
   .hero-grid {
